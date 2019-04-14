@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>CSS Animations</title>
+  <style>
+    .box {
+      width: 40px;
+      height: 40px;
+      background: skyblue;
+      cursor: pointer;
+      /* transition: 2s; */
+      /* opacity: 1; */
+      /* transition-property: transform, opacity; /* 時間的変化 */
+      /* transition-duration: .4s, .4s; 変化にかかる時間 */
+      /* transition: transform .4s, opacity .4s; */
+      /* transition: all .4s; */
+      /* transition: .4s; */
+    /* } */
+    /* .box:hover { */
+      /* transform: translate(20px, 10px);  x方向とy方向へ要素表示位置移動 */
+      /* transform: rotate(45deg);   要素回転 */
+      /* transform: scale(1.5);  要素中心から1.5倍拡大 */
+      /* transform: scale(1.5) rotate(45deg);  要素中心から1.5倍拡大しつつ45度回転 */
+      /* transform-origin: left top;  要素左上から拡大 */
+      /* transform: rotate(45deg);  /* 要素中心から45度回転 */
+      /* opacity: .3;  透過度 */
+    /* } */
+    /* .box.moved { */
+      /* transform: translate(400px, 0); */
+      /* transition-timing-function: ease; 変化の開始と完了を滑らかに　ease=規定値 */
+    }
+    .box.moved {
+      /* transform: translate(400px, 0); */
+      animation-name: spin;
+      animation-duration: 2s;
+      /* animation-iteration-count: infinite; 無限に繰り返す */
+      /* animation-timing-function: ease-in-out: infinite; */
+      animation-timing-function: ease-in-out;
+      /* animation-direction: alternate;  逆再生 */
+      animation-fill-mode: forwards; /* 最後の状態を保つ */
+    }
+    /* .box2 { transition-timing-function: ease-out;} ゆっくり終わる */
+    /* .box2 { transition-timing-function: cubic-bezier(0.01, 1.49, 0.2, 2.01); } ゆっくり終わる */
+    /* .box3 { */
+      /* transition-timing-function: ease-in-out; */
+      /* height: 180px; */
+      /* background: #333; */
+    /* } */
+    @keyframes spin {
+      0% { transform: none;}
+      50% { transform: rotate(270deg) scale(0.8); border-radius: 50%; }
+      80% { transform: rotate(320deg) scale(1.8); }
+      100% { transform: rotate(360deg) scale(0.2) translateY(200px); }
+    }
+  </style>
+</head>
+<body>
+  <!-- <div class="box box1"></div> -->
+  <!-- <div class="box box2"></div> -->
+  <!-- <div class="box box3"></div> -->
+  <div class="box"></div>
+  <script>
+    (() => {
+      'use strict';
+      document.querySelector('body').addEventListener('click', () => {
+        document.querySelectorAll('.box').forEach((box) => {
+          box.classList.add('moved');
+          // クリックしたら要素を横へ移動
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
