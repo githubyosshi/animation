@@ -28,9 +28,16 @@
     /* } */
     /* .box.moved { */
       /* transform: translate(400px, 0); */
+      transition-timing-function: ease; /* 変化の開始と完了を滑らかに　ease=規定値 */
     }
     .box.moved {
       transform: translate(400px, 0);
+    }
+    .box2 { transition-timing-function: ease-out;} /* ゆっくり終わる */
+    .box3 {
+      transition-timing-function: ease-in-out;
+      height: 180px;
+      background: #333;
     }
   </style>
 </head>
