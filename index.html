@@ -33,7 +33,8 @@
     .box.moved {
       transform: translate(400px, 0);
     }
-    .box2 { transition-timing-function: ease-out;} /* ゆっくり終わる */
+    /* .box2 { transition-timing-function: ease-out;} ゆっくり終わる */
+    .box2 { transition-timing-function: cubic-bezier(0.01, 1.49, 0.2, 2.01); } /* ゆっくり終わる */
     .box3 {
       transition-timing-function: ease-in-out;
       height: 180px;
