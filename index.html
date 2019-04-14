@@ -34,7 +34,11 @@
       /* transform: translate(400px, 0); */
       animation-name: spin;
       animation-duration: 2s;
-      animation-iteration-count: infinite;  /* 無限に繰り返す */
+      /* animation-iteration-count: infinite; 無限に繰り返す */
+      /* animation-timing-function: ease-in-out: infinite; */
+      animation-timing-function: ease-in-out;
+      /* animation-direction: alternate;  逆再生 */
+      animation-fill-mode: forwards; /* 最後の状態を保つ */
     }
     /* .box2 { transition-timing-function: ease-out;} ゆっくり終わる */
     /* .box2 { transition-timing-function: cubic-bezier(0.01, 1.49, 0.2, 2.01); } ゆっくり終わる */
@@ -45,7 +49,9 @@
     /* } */
     @keyframes spin {
       0% { transform: none;}
-      100% { transform: rotate(360deg);}
+      50% { transform: rotate(270deg) scale(0.8); border-radius: 50%; }
+      80% { transform: rotate(320deg) scale(1.8); }
+      100% { transform: rotate(360deg) scale(0.2) translateY(200px); }
     }
   </style>
 </head>
